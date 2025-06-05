@@ -1,0 +1,33 @@
+header {
+    display: grid;
+    grid-template-columns: 15% 30% 40% 15%;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+    background-color: $primaryBackgroundColor;
+    color: $primaryFontColor;
+    height: 48px;
+
+    .headerSearch {
+        input {
+            width: 250px;
+            min-height: 30px;
+            border: none;
+            border-radius: 6px;
+            padding: $leftPadding;
+            background: $secondaryBackgroundColor;
+            color: $primaryFontColor;
+            }
+        }
+
+    .headerLogin{
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            span{
+                padding : $leftPadding;
+            }
+        }
+    }
+}

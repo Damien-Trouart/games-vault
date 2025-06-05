@@ -1,0 +1,16 @@
+.headerNav {
+    justify-self: start;
+    & ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        list-style: none;
+
+        li{
+            padding-right: 2rem;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+    }
+}

@@ -6,8 +6,5 @@
     <title>Header</title>
 </head>
 <body>
-    <div>
-        <img src="../assets/logo.png" alt="QuestLog Logo">
-    </div>
 </body>
 </html>

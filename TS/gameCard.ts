@@ -1,33 +1,56 @@
-"use strict"
+interface Game{
+    id:number;
+    name:string;
+    img:string;
+    description:string;
+    inVault:boolean;
+    metascore:number;
+}
+
 
 export default class GameCard{
-    public title: HTMLHeadingElement
-    public img: HTMLElement
-    public btn: HTMLButtonElement
+    private gctemplate:HTMLTemplateElement|null;
+    public title: HTMLHeadingElement|null;
+    public cover: HTMLImageElement|null;
+    public checkbox: HTMLInputElement|null;
 
 
-    constructor( public name:string, public img:string){
-
-        const template = document.getElementById("game-card-template") as HTMLTemplateElement;
+    constructor( /*public name:string, public img:string, public inVault:boolean*/){
+        this.gctemplate = document.getElementById("game-card-template") as HTMLTemplateElement;
+        this.gctemplate.innerHTML = `
+            <div class="game-card">
+                <h2 class="game-card-title"></h2>
+                <img class="game-card-cover"/>
+                <label for="InVaultCheck" class="InVaultLabel"></label>
+                <input type="checkbox" class="InVaultCheckbox" id="InVaultCheck"></input>
+            </div>
+        `;
+        this.title = this.gctemplate.content.querySelector('.game-card-title');
+        // console.log(this.title);
+        this.cover = this.gctemplate.content.querySelector('.game-card-cover');
+        this.checkbox = this.gctemplate.content.querySelector('.InVaultCheckbox');
+    };
+    
+    
+    /**
+     * 
+     */
+    async getGameCard(){
+        const response: Response = await fetch ("./../games.json");
+        if (response.ok){
+            const gamesData:Game[] = await response.json()
+            gamesData.forEach((gameData) => {
+                console.log(gameData);
+                this.title!.textContent = gameData.name;
+                this.cover!.src = gameData.img
+                this.checkbox!.checked = gameData.inVault
+            });
+        }
     }
-    const clone = template.content.cloneNode(true) as DocumentFragment;
-
 }
-// export default class GameCard {
-//     // Propriétés pour stocker les éléments DOM
-//     public title: HTMLHeadingElement;
-//     public imgElem: HTMLImageElement;
-//     public btn: HTMLButtonElement;
 
-//     // Propriétés de données (du jeu)
-//     constructor(
-//         public name: string,
-//         public img: string,
-//         public desc: string
-//     ) {}
 
 //     render(): HTMLElement {
-//         const template = document.getElementById("game-card-template") as HTMLTemplateElement;
 //         const clone = template.content.cloneNode(true) as DocumentFragment;
 
 //         this.title = clone.querySelector('.title') as HTMLHeadingElement;

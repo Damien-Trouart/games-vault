@@ -1,16 +1,16 @@
 [
     {
-        "name": "witcher3",
+        "name": "Witcher 3",
         "img": "./image/jesus.jpg",
         "inVault": true
     },
     {
-        "name": 2,
+        "name": "Outer Wilds",
         "img": "./image/michael2.png",
         "inVault": false
     },
     {
-        "name": 3,
+        "name": "Clair-Obscur Expedition 33",
         "img": "./image/nic-cage.jpg",
         "inVault": true
     }

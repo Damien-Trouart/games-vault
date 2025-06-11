@@ -1,8 +1,8 @@
 export default class GameCard {
-    gctemplate;
-    title;
-    cover;
-    checkbox;
+    gctemplate; // Small Game Card Template
+    title; // Game title
+    cover; // Game cover
+    checkbox; // Is the game saved in the vault?
     constructor( /*public name:string, public img:string, public inVault:boolean*/) {
         this.gctemplate = document.getElementById("game-card-template");
         this.gctemplate.innerHTML = `
@@ -19,30 +19,25 @@ export default class GameCard {
     }
     ;
     /**
-     *
-     */
-    async getGameCard() {
+     * Fetch game data and fills the game card
+    */
+    async getGameCard(filter) {
         const response = await fetch("./../games.json");
         if (response.ok) {
             const gamesData = await response.json();
+            if (filter) {
+                gamesData.filter(filter);
+            }
             gamesData.forEach((gameData) => {
                 console.log(gameData);
                 this.title.textContent = gameData.name;
                 this.cover.src = gameData.img;
                 this.checkbox.checked = gameData.inVault;
+                const clone = this.gctemplate.content.cloneNode(true);
+                document.querySelectorAll('.gameCardContainer').forEach(container => {
+                    container.appendChild(clone);
+                });
             });
         }
     }
 }
-//     render(): HTMLElement {
-//         const clone = template.content.cloneNode(true) as DocumentFragment;
-//         this.title = clone.querySelector('.title') as HTMLHeadingElement;
-//         this.imgElem = clone.querySelector('.cover') as HTMLImageElement;
-//         this.btn = clone.querySelector('.add-to-vault-btn') as HTMLButtonElement;
-//         this.title.textContent = this.name;
-//         this.imgElem.src = this.img;
-//         // ... etc.
-//         // Retourne le fragment prêt à être inséré dans le DOM
-//         return clone;
-//     }
-// }

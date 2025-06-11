@@ -1,2 +1,43 @@
-import GameCard from "./gameCard.js";
-const gc = new GameCard();
+import GameCard from "./gameCardMinimal.js";
+const recentlyPlayed = new GameCard();
+recentlyPlayed.getGameCard((game) => {
+    if (!game.inVault) {
+        return false;
+    }
+    else {
+        const today = new Date();
+        const todayNumber = today.getDate();
+        const minus14Days = today.setDate(todayNumber - 14); // Deux semaines en arrière
+        return game.datesPlayed.some((date) => {
+        });
+    }
+});
+// const recentlyPlayedFilter = (game) => {
+//     if (!game.inVault) return false;  // D'abord vérifier si le jeu est dans le vault
+//     const twoWeeksAgo = new Date();
+//     twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
+//     return game.playDates.some(date => new Date(date) >= twoWeeksAgo);
+// };
+// const notPlayedRecentlyFilter = (game: Game): boolean => {
+//     if (!game.inVault) return false;  // D'abord vérifier si le jeu est dans le vault
+//     const twoWeeksAgo = new Date();
+//     twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
+//     return game.playDates.length > 0 && 
+//            !game.playDates.some(date => new Date(date) >= twoWeeksAgo);
+// };
+// const neverPlayedFilter = (game: Game): boolean => {
+//     return game.inVault && game.playDates.length === 0;  // Dans le vault mais jamais joué
+// };
+// // Création des trois carousels
+// const recentlyPlayed = new GameCard();
+// recentlyPlayed.getGameCard(recentlyPlayedFilter);
+// const notPlayedRecently = new GameCard();
+// notPlayedRecently.getGameCard(notPlayedRecentlyFilter);
+// const neverPlayed = new GameCard();
+// neverPlayed.getGameCard(neverPlayedFilter);
+// const recentlyPlayed = new GameCard ();
+// recentlyPlayed.getGameCard()
+// const notPlayedRecently = new GameCard ();
+// notPlayedRecently.getGameCard()
+// const neverPlayed = new GameCard ();
+// neverPlayed.getGameCard()

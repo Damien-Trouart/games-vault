@@ -16,11 +16,12 @@
             <img src="../assets/GamesVaultLogo.png" alt="GamesVault Logo">
         </div>
         <form action="" method="get" class="headerSearch">
-            <input type="search" autocomplete="off" placeholder="Search your favorite games...">
+            <input class="headerSearch__input" type="search" autocomplete="off" placeholder="Search your favorite games...">
+            <button type="submit" class="headerSearch__button" value="Search"><img src="../assets/magnifier.svg" alt="magnifier logo"></button>
         </form>
         <nav class="headerNav">
             <ul>
-                <li><a href="../HTML/index.html">Games</a></li>
+                <li><a href="../HTML/index.html">Vault</a></li>
                 <li><a href="../HTML/discover.html">Discover</a></li>
                 <li><a href="../HTML/profile.html">Profile</a></li>
             </ul>
@@ -37,20 +38,21 @@
     
     <main>
         <section class="recentlyPlayed">
-            <div class="gameCarousel">
+            <!-- <div class="gameCarousel">
                 <div class="gameCardContainer"></div>
-            </div>
+            </div> -->
         </section>
         <section class="notPlayedInAWhile">
-            <div class="gameCarousel">
+            <!-- <div class="gameCarousel">
                 <div class="gameCardContainer"></div>
-            </div>
+            </div> -->
         </section>
         <section class="neverPlayed">
-            <div class="gameCarousel">
+            <!-- <div class="gameCarousel">
                 <div class="gameCardContainer"></div>
-            </div>
+            </div> -->
         </section>
+        <div class="gameCardContainer"></div>
     </main>
     <footer></footer>
 </body>

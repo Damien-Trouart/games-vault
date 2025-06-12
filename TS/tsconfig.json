@@ -112,6 +112,6 @@
   },
   "files":[
         "./main.ts",
-        "gameCardMinimal.ts",
+        "gameCardMini.ts",
     ]
 }

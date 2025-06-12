@@ -1,14 +1,30 @@
-//? COLOR VARIABLES
+        //? COLOR VARIABLES
+
+//*Dark Theme Colors
 //FONT COLORS   
-$primaryFontColor: white;
-    
+    $primaryFontColor: white;
+    $secondaryFontColor: #ccc;
+
 //BACKGROUND COLORS
-$primaryBackgroundColor: black;
-$secondaryBackgroundColor: #333;
+    $primaryBackgroundColor: black;
+    $secondaryBackgroundColor: #333;
 
 
-//? SIZE VARIABLES
+//* Light Theme Colors
+@media (prefers-color-scheme: light) {
+//FONT COLORS
+    $primaryFontColor: black;
+    $secondaryFontColor: #333;
+        
+//BACKGROUND COLORS
+    $primaryBackgroundColor: white;
+    $secondaryBackgroundColor: #ccc;
+}
+
+
+
+        //? SIZE VARIABLES
 //FONT SIZES
 
-//? PADDING
+        //? PADDING
 $leftPadding: 0 0 0 8px;

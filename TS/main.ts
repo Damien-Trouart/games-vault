@@ -1,28 +1,52 @@
-import GameCard from "./gameCardMinimal.js"
+import GameCard from "./gameCardMini.js"
+import Carousel from "./carousel.js"
+import {Game, CompletionTime} from "./interface.js";
 
 
+const headerSearchInput:HTMLInputElement|null = document.querySelector(".headerSearch__input") ;
+const headerSearchResultsContainer:HTMLDivElement|null = document.querySelector('.gameCardContainer');
 
 
+const testGameCard = new GameCard(headerSearchResultsContainer);
 
 
-
-
-const recentlyPlayed = new GameCard();
-
-recentlyPlayed.getGameCard((game)=>{
-    if(!game.inVault){
-        return false;
-    }
+headerSearchInput?.addEventListener("input", () => {
+    //TODO problème ici, même un console log ne fonctionne pas
+    // console.log("Input event triggered");
+    headerSearchResultsContainer!.innerHTML = ""; // Clear previous results
+    const headerSearchValueCleaned:string = headerSearchInput.value.trim().toLowerCase();
+    // console.log(headerSearchValueCleaned); // Log the cleaned search input
+    if (headerSearchValueCleaned.length <= 1) {
+        return; 
+    }// If the search input is empty or too short, do not fetch any games
     else{
-        const today = new Date();
-        const todayNumber = today.getDate();
-        const minus14Days = today.setDate(todayNumber - 14); // Deux semaines en arrière
-        
-        const recent = (date) => {date >= minus14Days};
-        return game.datesPlayed.some(recent)
+    testGameCard.getGameCard((game)=>game.name.toLowerCase().trim().includes(headerSearchValueCleaned));}
+})
+console.log(headerSearchInput?.value);
 
-    }
-});
+// const testGameCard = new GameCard();
+// testGameCard.getGameCard((game)=>game.name.toLowerCase().includes(`witcher`.toLowerCase()));
+// const recentlyPlayed = new Carousel();
+
+
+
+// const recentlyPlayed = new GameCard();
+
+// recentlyPlayed.getGameCard((game)=>{
+//     if(!game.inVault){
+//         return false;
+//     }
+//     else{
+//         const today = new Date();
+//         const todayNumber = today.getDate();
+//         const minus14Days = today.setDate(todayNumber - 14); // Deux semaines en arrière
+        
+//         // const recent = (date) => {date >= minus14Days};
+//         // return game.datesPlayed.some(recent)
+//         return true; //!à effacer
+
+//     }
+// });
 
 
 
@@ -39,8 +63,7 @@ recentlyPlayed.getGameCard((game)=>{
     
 //     const twoWeeksAgo = new Date();
 //     twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
-//     return game.playDates.length > 0 && 
-//            !game.playDates.some(date => new Date(date) >= twoWeeksAgo);
+//     return game.playDates.length > 0 && !game.playDates.some(date => new Date(date) >= twoWeeksAgo);
 // };
 
 // const neverPlayedFilter = (game: Game): boolean => {

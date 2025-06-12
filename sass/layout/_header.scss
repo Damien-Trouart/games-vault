@@ -9,16 +9,31 @@ header {
     height: 48px;
 
     .headerSearch {
-        input {
+        display: flex;
+        &__input {
             width: 250px;
             min-height: 30px;
             border: none;
-            border-radius: 6px;
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
             padding: $leftPadding;
             background: $secondaryBackgroundColor;
             color: $primaryFontColor;
             }
+        &__button {
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border: none;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+            background: $secondaryBackgroundColor;
+            color: $primaryFontColor;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+    }
 
     .headerLogin{
         a{

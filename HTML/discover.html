@@ -11,6 +11,67 @@
     <script type="module" src="./../JS/main.js"></script>
 </head>
 <body>
+    <header>
+        <div class="headerLogo">
+            <img src="../assets/GamesVaultLogo.png" alt="GamesVault Logo">
+        </div>
+        <form action="" method="get" class="headerSearch">
+            <input class="headerSearch__input" type="search" autocomplete="off" placeholder="Search your favorite games...">
+            <button type="submit" class="headerSearch__button" value="Search"><img src="../assets/magnifier.svg"
+                    alt="magnifier logo"></button>
+        </form>
+        <nav class="headerNav">
+            <ul>
+                <li><a href="../HTML/index.html">Vault</a></li>
+                <li><a href="../HTML/discover.html">Discover</a></li>
+                <li><a href="../HTML/profile.html">Profile</a></li>
+            </ul>
+        </nav>
+        <div class="headerLogin">
+            <a href="">
+                <img src="./../assets/login.svg" alt="Login Logo">
+                <span>Login</span>
+            </a>
+        </div>
+    </header>
+    <main>
+        <section class="searchContainer">
+            <aside class="filters">
+                <fieldset class="hardware">
+                    <legend>Plateforme</legend>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="platform" value="pc">
+                                PC
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="platform" value="ps5">
+                                PlayStation 5
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="platform" value="switch">
+                                Nintendo Switch
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="platform" value="xbox">
+                                Xbox serie X/S
+                            </label>
+                        </li>
+                    </ul>
+                </fieldset>
+            </aside>
+            <div class="searchResults"></div>
+        </section>
+        <section class="topPlayed">
+        </section>
+    </main>
+    </body>
     
-</body>
-</html>
+    </html>

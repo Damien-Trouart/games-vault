@@ -3,8 +3,17 @@ const headerSearchInput = document.querySelector(".headerSearch__input");
 const headerSearchResultsContainer = document.querySelector('.gameCardContainer');
 const testGameCard = new GameCard(headerSearchResultsContainer);
 headerSearchInput?.addEventListener("input", () => {
+    //TODO problème ici, même un console log ne fonctionne pas
+    // console.log("Input event triggered");
     headerSearchResultsContainer.innerHTML = ""; // Clear previous results
-    testGameCard.getGameCard((game) => game.name.toLowerCase().includes(`${headerSearchInput.value}`.toLowerCase()));
+    const headerSearchValueCleaned = headerSearchInput.value.trim().toLowerCase();
+    // console.log(headerSearchValueCleaned); // Log the cleaned search input
+    if (headerSearchValueCleaned.length <= 1) {
+        return;
+    } // If the search input is empty or too short, do not fetch any games
+    else {
+        testGameCard.getGameCard((game) => game.name.toLowerCase().trim().includes(headerSearchValueCleaned));
+    }
 });
 console.log(headerSearchInput?.value);
 // const testGameCard = new GameCard();

@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Damien Trouart">
-    <meta name="description" content="Backlog of your current, past and futur video games, a place to remember every game you have played or want to">
+    <meta name="description"
+        content="Backlog of your current, past and futur video games, a place to remember every game you have played or want to">
     <meta name="og:site_name" content="GamesVault">
     <title>GamesVault</title>
     <link rel="stylesheet" href="../sass/main.css">
     <script type="module" src="./../JS/main.js"></script>
 </head>
+
+
 <body>
+
     <header>
         <div class="headerLogo">
-            <img src="../assets/GamesVaultLogo.png" alt="GamesVault Logo">
+            <img src="../assets/GamesVaultLogoSmall.png" alt="GamesVault Logo">
         </div>
         <form action="" method="get" class="headerSearch">
-            <input class="headerSearch__input" type="search" autocomplete="off" placeholder="Search your favorite games...">
+            <input class="headerSearch__input" type="search" autocomplete="off"
+                placeholder="Search your favorite games...">
             <button type="submit" class="headerSearch__button" value="Search"><img src="../assets/magnifier.svg"
                     alt="magnifier logo"></button>
         </form>
@@ -34,7 +40,19 @@
             </a>
         </div>
     </header>
-    <main>
+
+    <template id="game-card-template">
+        <div class="game-card">
+            <h2 class="gcTitle"></h2>
+            <div class="gcImgContainer">
+                <img class="gcImg" alt="Game Cover">
+            </div>
+            <label for="InVaultCheck" class="InVaultLabel"></label>
+            <input type="checkbox" class="InVaultCheckbox" id="InVaultCheck"></input>
+        </div>
+    </template>
+
+    <main class="discoverMain">
         <section class="searchContainer">
             <aside class="filters">
                 <fieldset class="hardware">
@@ -67,11 +85,19 @@
                     </ul>
                 </fieldset>
             </aside>
-            <div class="searchResults"></div>
+            <div class="searchResults">
+                <h2>Search Results</h2>
+                <div class="gameCarousel">
+                    <div class="gameCardContainer"></div>
+                </div>
+            </div>
         </section>
         <section class="topPlayed">
         </section>
     </main>
-    </body>
-    
-    </html>
+    <footer>
+        <p>&copy; 2025 Damien Trouart</p>
+        <p>All rights reserved.</p>
+</body>
+
+</html>

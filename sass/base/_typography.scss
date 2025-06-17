@@ -1,8 +1,30 @@
-li{
+li {
     list-style: none;
-    text-decoration:none
 }
-a{
-    color: var(--primaryFontColor);
+
+a,
+li {
     text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+label,
+button,
+a {
+    color: var(--primaryFontColor);
+}
+
+p,
+a,
+span,
+label,
+button {
+    font-size: $primaryFontSize;
 }

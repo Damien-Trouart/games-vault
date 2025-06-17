@@ -1,15 +1,17 @@
 .headerNav {
     justify-self: start;
+
     & ul {
         display: flex;
         flex-direction: row;
         align-items: center;
         list-style: none;
 
-        li{
-            padding-right: 2rem;
+        li {
+            padding-right: 3rem;
         }
-        a:hover{
+
+        a:hover {
             text-decoration: underline;
         }
     }

@@ -5,21 +5,11 @@ export default class GameCard {
     checkbox; // Is the game saved in the vault?
     gcContainer; // Container for the game cards cloned
     constructor(container) {
-        this.gcTemplate = document.querySelector('#game-card-template');
-        if (this.gcTemplate) {
-            this.gcTemplate.innerHTML = `
-        <div class="game-card">
-            <h2 class="game-card-title"></h2>
-            <img class="game-card-cover"/>
-            <label for="InVaultCheck" class="InVaultLabel"></label>
-            <input type="checkbox" class="InVaultCheckbox" id="InVaultCheck"></input>
-        </div>
-    `;
-        }
-        this.title = this.gcTemplate.content.querySelector('.game-card-title');
-        this.cover = this.gcTemplate.content.querySelector('.game-card-cover');
-        this.checkbox = this.gcTemplate.content.querySelector('.InVaultCheckbox');
         this.gcContainer = container || null;
+        this.gcTemplate = document.querySelector('#game-card-template');
+        this.title = this.gcTemplate.content.querySelector('.gcTitle');
+        this.cover = this.gcTemplate.content.querySelector('.gcImg');
+        this.checkbox = this.gcTemplate.content.querySelector('.InVaultCheckbox');
     }
     /**
      * Fetch game data and fills the game card with the information.
@@ -34,13 +24,16 @@ export default class GameCard {
                 gamesData = gamesData.filter(filter);
             }
             gamesData.forEach((gameData) => {
-                console.log(gameData);
-                this.title.textContent = gameData.name;
-                this.cover.src = gameData.img;
-                this.checkbox.checked = gameData.inVault;
                 const clone = this.gcTemplate.content.cloneNode(true);
+                // Récupère les éléments du clone
+                const title = clone.querySelector('.gcTitle');
+                const cover = clone.querySelector('.gcImg');
+                const checkbox = clone.querySelector('.InVaultCheckbox');
+                // Remplit les infos
+                title.textContent = gameData.name;
+                cover.src = gameData.img;
+                checkbox.checked = gameData.inVault;
                 this.gcContainer?.appendChild(clone);
-                // document.body.appendChild(clone); 
             });
         }
     }

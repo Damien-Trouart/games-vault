@@ -1,16 +1,19 @@
-import GameCard from "./gameCardMini.js";
 export default class Carousel {
-    gameCarousel;
+    gcCarousel;
+    // private gcwrapper: HTMLHeadingElement;
     gameCards;
-    // private title: HTMLHeadingElement;
+    currentIndex;
     constructor() {
-        this.gameCarousel = document.createElement('div');
-        this.gameCarousel.classList.add('game-carousel');
-        this.gameCards = new GameCard();
+        this.gameCards = [];
+        this.currentIndex = 0;
+        this.gcCarousel = document.createElement('div');
+        this.gcCarousel.classList.add('game-carousel');
         // Ajout des boutons de navigation
         const prevButton = document.createElement('button');
         const nextButton = document.createElement('button');
         prevButton.classList.add('carousel-prev');
         nextButton.classList.add('carousel-next');
+        prevButton.textContent = '←';
+        nextButton.textContent = '→';
     }
 }

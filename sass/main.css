@@ -1,13 +1,10 @@
-.game-card {
-  background-color: var(#333);
-  height: 200px;
-  width: 100px;
-}
-.game-card .gcImgContainer img {
+@charset "UTF-8";
+header .headerLogo img, .game-card .gcImgContainer .gcImg {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
 }
 
 *, ::before, ::after {
@@ -18,12 +15,104 @@
 
 li {
   list-style: none;
+}
+
+a,
+li {
   text-decoration: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+label,
+button,
 a {
   color: var(--primaryFontColor);
-  text-decoration: none;
+}
+
+p,
+a,
+span,
+label,
+button {
+  font-size: 16px;
+}
+
+.game-card {
+  position: relative;
+  width: 150px;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #1a1a1a;
+}
+.game-card .gcImgContainer {
+  width: 100%;
+  height: 200px;
+  order: 1;
+}
+.game-card .gcTitle {
+  order: 2;
+  padding: 8px;
+  color: white;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: default;
+}
+.game-card .InVaultLabel {
+  display: none;
+}
+.game-card .InVaultCheckbox {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  opacity: 0.8;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #333;
+  border-radius: 4px;
+  z-index: 2;
+}
+.game-card .InVaultCheckbox::before {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+}
+.game-card .InVaultCheckbox:checked {
+  background-color: goldenrod;
+  opacity: 1;
+}
+.game-card .InVaultCheckbox:checked::before {
+  content: "✓";
+  font-size: 16px;
+}
+.game-card .InVaultCheckbox:hover {
+  opacity: 1;
+}
+
+.gameCardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .headerNav {
@@ -36,7 +125,7 @@ a {
   list-style: none;
 }
 .headerNav ul li {
-  padding-right: 2rem;
+  padding-right: 3rem;
 }
 .headerNav ul a:hover {
   text-decoration: underline;
@@ -52,11 +141,14 @@ header {
   color: white;
   height: 48px;
 }
+header .headerLogo {
+  height: 48px;
+}
 header .headerSearch {
   display: flex;
 }
 header .headerSearch__input {
-  width: 250px;
+  width: 300px;
   min-height: 30px;
   border: none;
   border-top-left-radius: 6px;

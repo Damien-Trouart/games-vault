@@ -1,6 +1,8 @@
-main {
-    display: grid;
+.discoverMain {
     .searchContainer {
+        display: flex;
+        flex-direction: row;
+
         .filters {}
 
         .searchResults {}

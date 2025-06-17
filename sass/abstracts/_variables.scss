@@ -1,30 +1,42 @@
-        //? COLOR VARIABLES
-
+//? COLOR VARIABLES
 //*Dark Theme Colors
 //FONT COLORS   
-    $primaryFontColor: white;
-    $secondaryFontColor: #ccc;
+$primaryFontColor: white;
+$primaryFontColorDarker: darken($primaryFontColor, 10%);
+$secondaryFontColor: #ccc;
+$secondaryFontColorDarker: darken($secondaryFontColor, 10%);
 
 //BACKGROUND COLORS
-    $primaryBackgroundColor: black;
-    $secondaryBackgroundColor: #333;
+$primaryBackgroundColor: black;
+$primaryBackgroundColorLighter: lighten($primaryBackgroundColor, 10%);
+$secondaryBackgroundColor: #333;
+$secondaryBackgroundColorLighter: lighten($secondaryBackgroundColor, 10%);
 
 
 //* Light Theme Colors
 @media (prefers-color-scheme: light) {
-//FONT COLORS
+    //FONT COLORS
     $primaryFontColor: black;
+    $primaryFontColorLighter: lighten($primaryFontColor, 10%);
     $secondaryFontColor: #333;
-        
-//BACKGROUND COLORS
+    $secondaryFontColorLighter: lighten($secondaryFontColor, 10%);
+
+    //BACKGROUND COLORS
     $primaryBackgroundColor: white;
+    $primaryBackgroundColorDarker: darken($primaryBackgroundColor, 10%);
     $secondaryBackgroundColor: #ccc;
+    $secondaryBackgroundColorDarker: darken($secondaryBackgroundColor, 10%);
 }
 
 
 
-        //? SIZE VARIABLES
-//FONT SIZES
+//? SIZE VARIABLES
+//HEADER SIZE
+$headerHeight: 48px;
 
-        //? PADDING
+//FONT SIZES
+$primaryFontSize: 16px;
+
+
+//? PADDING
 $leftPadding: 0 0 0 8px;

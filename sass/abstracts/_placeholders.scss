@@ -1,12 +1,6 @@
-%gcStyle{
-    background-color: var($secondaryBackgroundColor);
-    height: 200px;
-    width: 100px;
-    .gcImgContainer{
-        img{
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-    }
+%imgStyle {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }

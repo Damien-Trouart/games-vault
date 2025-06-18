@@ -19,10 +19,12 @@
             <img src="../assets/GamesVaultLogoSmall.png" alt="GamesVault Logo">
         </div>
         <form action="" method="get" class="headerSearch">
-            <input class="headerSearch__input" type="search" autocomplete="off"
-                placeholder="Search your favorite games...">
-            <button type="submit" class="headerSearch__button" value="Search"><img src="../assets/magnifier.svg"
-                    alt="magnifier logo"></button>
+            <div class="searchBarGroup">
+                <input class="searchBarGroup__input" type="search" autocomplete="off"
+                    placeholder="Search your favorite games...">
+                <button type="submit" class="searchBarGroup__button" value="Search"><img src="../assets/magnifier.svg" alt="magnifier logo"></button>
+            </div>
+            <div class="propositionsContainer"></div>
         </form>
         <nav class="headerNav">
             <ul>
@@ -51,7 +53,7 @@
     </template>
 
     <main>
-        <section class="recentlyPlayed">
+        <!-- <section class="recentlyPlayed">
             <div class="gameCarousel">
                 <div class="gameCardContainer"></div>
             </div>
@@ -65,8 +67,8 @@
             <div class="gameCarousel">
                 <div class="gameCardContainer"></div>
             </div>
-        </section>
-        <!-- <div class="gameCardContainer"></div> -->
+        </section> -->
+        <div class="gameCardContainer"></div>
     </main>
     <footer></footer>
 </body>

@@ -1,5 +1,5 @@
 @charset "UTF-8";
-header .headerLogo img, .game-card .gcImgContainer .gcImg {
+header .headerLogo img, .propositionsContainer .game-card .gcImgContainer .gcImg, .gameCardContainer .game-card .gcImgContainer .gcImg {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -13,6 +13,10 @@ header .headerLogo img, .game-card .gcImgContainer .gcImg {
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "openSans";
+  src: url(../../font/openSans.ttf);
+}
 li {
   list-style: none;
 }
@@ -34,6 +38,7 @@ label,
 button,
 a {
   color: var(--primaryFontColor);
+  font-family: "openSans", sans-serif;
 }
 
 p,
@@ -44,7 +49,13 @@ button {
   font-size: 16px;
 }
 
-.game-card {
+.gameCardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+.gameCardContainer .game-card {
   position: relative;
   width: 150px;
   height: 230px;
@@ -53,12 +64,12 @@ button {
   justify-content: space-between;
   background-color: #1a1a1a;
 }
-.game-card .gcImgContainer {
+.gameCardContainer .game-card .gcImgContainer {
   width: 100%;
   height: 200px;
   order: 1;
 }
-.game-card .gcTitle {
+.gameCardContainer .game-card .gcTitle {
   order: 2;
   padding: 8px;
   color: white;
@@ -68,10 +79,10 @@ button {
   text-overflow: ellipsis;
   cursor: default;
 }
-.game-card .InVaultLabel {
+.gameCardContainer .game-card .InVaultLabel {
   display: none;
 }
-.game-card .InVaultCheckbox {
+.gameCardContainer .game-card .InVaultCheckbox {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -86,7 +97,7 @@ button {
   border-radius: 4px;
   z-index: 2;
 }
-.game-card .InVaultCheckbox::before {
+.gameCardContainer .game-card .InVaultCheckbox::before {
   content: "+";
   position: absolute;
   top: 50%;
@@ -96,23 +107,63 @@ button {
   font-size: 20px;
   font-weight: 300;
 }
-.game-card .InVaultCheckbox:checked {
+.gameCardContainer .game-card .InVaultCheckbox:checked {
   background-color: goldenrod;
   opacity: 1;
 }
-.game-card .InVaultCheckbox:checked::before {
+.gameCardContainer .game-card .InVaultCheckbox:checked::before {
   content: "✓";
   font-size: 16px;
 }
-.game-card .InVaultCheckbox:hover {
+.gameCardContainer .game-card .InVaultCheckbox:hover {
   opacity: 1;
 }
 
-.gameCardContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
+.propositionsContainer {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  overflow-y: auto;
+  width: 100%;
+  background: #1a1a1a;
+  opacity: 0.9;
+  z-index: 10;
+  top: 48px;
+  left: 0;
+}
+.propositionsContainer .game-card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5em 10rem;
+  cursor: pointer;
+  background: transparent;
+  border-bottom: 1px solid #333;
+  transition: background 0.3s;
+}
+.propositionsContainer .game-card:hover {
+  background: #333;
+}
+.propositionsContainer .game-card .gcImgContainer {
+  order: 1;
+  width: 100px;
+  height: 50px;
+  margin-right: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.propositionsContainer .game-card .gcTitle {
+  order: 2;
+  font-size: 1em;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.propositionsContainer .game-card .InVaultCheckbox, .propositionsContainer .game-card .InVaultLabel {
+  display: none;
 }
 
 .headerNav {
@@ -127,8 +178,23 @@ button {
 .headerNav ul li {
   padding-right: 3rem;
 }
-.headerNav ul a:hover {
-  text-decoration: underline;
+.headerNav ul a {
+  font-size: 15px;
+  font-weight: 500;
+  position: relative;
+}
+.headerNav ul a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.2s;
+}
+.headerNav ul a:hover::after {
+  width: 100%;
 }
 
 header {
@@ -144,10 +210,17 @@ header {
 header .headerLogo {
   height: 48px;
 }
-header .headerSearch {
+header .headerSearch .searchBarGroup {
   display: flex;
 }
-header .headerSearch__input {
+header .headerSearch .searchBarGroup:focus-within {
+  outline: 2px solid white;
+  outline-offset: 0;
+}
+header .headerSearch .searchBarGroup__input:focus, header .headerSearch .searchBarGroup__button:focus {
+  outline: none;
+}
+header .headerSearch .searchBarGroup__input {
   width: 300px;
   min-height: 30px;
   border: none;
@@ -157,7 +230,7 @@ header .headerSearch__input {
   background: #333;
   color: white;
 }
-header .headerSearch__button {
+header .headerSearch .searchBarGroup__button {
   cursor: pointer;
   width: 30px;
   height: 30px;
@@ -165,7 +238,6 @@ header .headerSearch__button {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
   background: #333;
-  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -179,6 +251,7 @@ header .headerLogin a span {
   padding: 0 0 0 8px;
 }
 
-main {
-  display: grid;
+.discoverMain .searchContainer {
+  display: flex;
+  flex-direction: row;
 }/*# sourceMappingURL=main.css.map */

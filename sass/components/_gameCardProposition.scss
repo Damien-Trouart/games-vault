@@ -1,0 +1,56 @@
+.propositionsContainer {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    overflow-y: auto;
+    width: 100%;
+    background: $primaryBackgroundColorLighter;
+    opacity: 0.9;
+    z-index: 10;
+    top: 48px;
+    left: 0;
+
+    .game-card {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5em 10rem;
+        cursor: pointer;
+        background: transparent;
+        border-bottom: 1px solid $secondaryBackgroundColor;
+        transition: background 0.3s;
+
+        &:hover {
+            background: $secondaryBackgroundColor;
+        }
+
+        .gcImgContainer {
+            order: 1;
+            width: 100px;
+            height: 50px;
+            margin-right: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .gcImg {
+                @extend %imgStyle;
+            }
+        }
+
+        .gcTitle {
+            order: 2;
+            font-size: 1em;
+            font-weight: 600;
+            color: $primaryFontColor;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            // flex: 1 1 auto;
+        }
+
+        .InVaultCheckbox, .InVaultLabel{
+            display: none;
+        }
+    }
+}

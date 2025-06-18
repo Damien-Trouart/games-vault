@@ -1,32 +1,32 @@
 [
     {
         "name": "The Witcher 3: Wild Hunt",
-        "img": "/games-vault/assets/witcher3.jpg",
+        "img": "../assets/witcher3.jpg",
         "inVault": true
     },
     {
         "name": "Outer Wilds",
-        "img": "/games-vault/assets/outerWilds.jpg",
+        "img": "../assets/outerWilds.jpg",
         "inVault": false
     },
     {
         "name": "Clair-Obscur Expedition 33",
-        "img": "/games-vault/assets/clairObscur.jpeg",
+        "img": "../assets/clairObscur.jpeg",
         "inVault": true
     },
     {
         "name": "Cyberpunk 2077",
-        "img": "/games-vault/assets/cyberpunk.jpg",
+        "img": "../assets/cyberpunk.jpg",
         "inVault": true
     },
     {
         "name": "Baldur's Gate 3",
-        "img": "/games-vault/assets/bg3.jpeg",
+        "img": "../assets/bg3.jpeg",
         "inVault": true
     },
     {
         "name": "helldivers 2",
-        "img": "/games-vault/assets/helldivers2.jpg",
+        "img": "../assets/helldivers2.jpg",
         "inVault": false
     }
 ]

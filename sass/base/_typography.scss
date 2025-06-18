@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'openSans';
+    src: url(../../font/openSans.ttf);
+}
 li {
     list-style: none;
 }
@@ -19,6 +23,7 @@ label,
 button,
 a {
     color: var(--primaryFontColor);
+    font-family: 'openSans', sans-serif;
 }
 
 p,

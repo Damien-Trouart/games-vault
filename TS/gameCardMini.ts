@@ -21,7 +21,7 @@ export default class GameCard {
      * @param filter Optional filter function to apply on the games data.
      * 
      */
-    async getGameCard(filter?: (game: Game) => boolean) {
+    async getGameCard(filter?: (game: Game) => boolean, mode: "card" | "proposition" = "card") {
         const response: Response = await fetch("./../games.json");
         if (response.ok) {
             let gamesData: Game[] = await response.json();
@@ -43,6 +43,12 @@ export default class GameCard {
                 cover.src = gameData.img;
                 checkbox.checked = gameData.inVault;
                 this.gcContainer?.appendChild(clone);
+                if (mode === "card") {
+                    this.gcContainer!.classList.add("gameCardContainer");
+                }
+                else if (mode === "proposition") {
+                    this.gcContainer!.classList.add("propositionsContainer");
+                }
             });
         }
     }

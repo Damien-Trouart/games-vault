@@ -7,50 +7,60 @@ header {
     background-color: $primaryBackgroundColor;
     color: $primaryFontColor;
     height: $headerHeight;
-
+    
     .headerLogo {
         height: $headerHeight;
-
+        
         img {
             @extend %imgStyle;
         }
     }
-
-    .headerSearch {
-        display: flex;
-
-        &__input {
-            width: 300px;
-            min-height: 30px;
-            border: none;
-            border-top-left-radius: 6px;
-            border-bottom-left-radius: 6px;
-            padding: $leftPadding;
-            background: $secondaryBackgroundColor;
-            color: $primaryFontColor;
+        .headerSearch {
+            .searchBarGroup {
+                display: flex;
+                &:focus-within {
+                    outline: 2px solid $primaryFontColor;
+                    outline-offset: 0;
+                }
+    
+                &__input,
+                &__button {
+                    &:focus {
+                        outline: none;
+                    }
+                }
+    
+                &__input {
+                    width: 300px;
+                    min-height: 30px;
+                    border: none;
+                    border-top-left-radius: 6px;
+                    border-bottom-left-radius: 6px;
+                    padding: $leftPadding;
+                    background: $secondaryBackgroundColor;
+                    color: $primaryFontColor;
+                }
+    
+                &__button {
+                    cursor: pointer;
+                    width: 30px;
+                    height: 30px;
+                    border: none;
+                    border-top-right-radius: 6px;
+                    border-bottom-right-radius: 6px;
+                    background: $secondaryBackgroundColor;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
         }
-
-        &__button {
-            cursor: pointer;
-            width: 30px;
-            height: 30px;
-            border: none;
-            border-top-right-radius: 6px;
-            border-bottom-right-radius: 6px;
-            background: $secondaryBackgroundColor;
-            color: $primaryFontColor;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    }
-
     .headerLogin {
         a {
             display: flex;
             align-items: center;
             justify-content: center;
-
+            
             span {
                 padding: $leftPadding;
             }

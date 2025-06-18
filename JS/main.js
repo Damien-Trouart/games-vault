@@ -1,17 +1,36 @@
 import GameCard from "./gameCardMini.js";
-//*DISCOVER SEARCH BAR RESULTS
-const headerSearchInput = document.querySelector(".headerSearch__input");
+//!DISCOVER SEARCH BAR RESULTS
+const headerSearchForm = document.querySelector(".headerSearch");
+const headerSearchInput = document.querySelector(".searchBarGroup__input");
 const headerSearchResultsContainer = document.querySelector('.gameCardContainer');
+const headerSearchPropositionsContainer = document.querySelector('.propositionsContainer');
+//*Search Results
 const searchMatch = new GameCard(headerSearchResultsContainer);
-//pour les resultats de la barre de recherche réactifs aux inputs de l'utilisateur
-headerSearchInput?.addEventListener("input", () => {
-    const headerSearchValueCleaned = headerSearchInput.value.trim().toLowerCase();
-    if (headerSearchValueCleaned.length <= 1) {
+headerSearchForm?.addEventListener("submit", (e) => {
+    e.preventDefault(); // Prevent the form from submitting and refreshing the page
+    const searchValue = headerSearchInput.value.trim().toLowerCase();
+    // Clean the containers before adding new results
+    headerSearchResultsContainer.innerHTML = "";
+    headerSearchPropositionsContainer.innerHTML = "";
+    if (searchValue.length <= 1) {
         return;
     } // If the search input is empty or too short, do not fetch any games
     else {
-        headerSearchResultsContainer.innerHTML = ""; // Clear previous results
-        searchMatch.getGameCard((game) => game.name.toLowerCase().trim().includes(headerSearchValueCleaned));
+        searchMatch.getGameCard((game) => game.name.toLowerCase().trim().includes(searchValue), "card");
+    }
+});
+//*Search Propositions
+const searchPropositions = new GameCard(headerSearchPropositionsContainer);
+headerSearchInput?.addEventListener("input", () => {
+    const searchValue = headerSearchInput.value.trim().toLowerCase();
+    // Clean the containers before adding new results
+    headerSearchResultsContainer.innerHTML = "";
+    headerSearchPropositionsContainer.innerHTML = "";
+    if (searchValue.length <= 1) {
+        return;
+    } // If the search input is empty or too short, do not fetch any games
+    else {
+        searchPropositions.getGameCard((game) => game.name.toLowerCase().trim().includes(searchValue), "proposition");
     }
 });
 //*CAROUSEL VAULT

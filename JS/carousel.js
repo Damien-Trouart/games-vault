@@ -1,10 +1,14 @@
+import GameCard from "./gameCardMini.js";
 export default class Carousel {
     gcCarousel;
-    // private gcwrapper: HTMLHeadingElement;
-    gameCards;
+    gcwrapper;
+    games;
     currentIndex;
-    constructor() {
-        this.gameCards = [];
+    constructor(carousel, games) {
+        this.gcCarousel = carousel;
+        this.gcwrapper = new GameCard(this.gcCarousel);
+        this.gcwrapper.getGameCard((game) => true);
+        this.games = games;
         this.currentIndex = 0;
         this.gcCarousel = document.createElement('div');
         this.gcCarousel.classList.add('game-carousel');

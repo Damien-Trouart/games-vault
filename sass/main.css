@@ -15,7 +15,7 @@ header .headerLogo img, .propositionsContainer .game-card .gcImgContainer .gcImg
 
 @font-face {
   font-family: "openSans";
-  src: url(../../font/openSans.ttf);
+  src: url("/games-vault/font/openSans.ttf");
 }
 li {
   list-style: none;
@@ -179,8 +179,8 @@ button {
   padding-right: 3rem;
 }
 .headerNav ul a {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 600;
   position: relative;
 }
 .headerNav ul a::after {

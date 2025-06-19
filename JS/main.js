@@ -35,5 +35,6 @@ headerSearchInput?.addEventListener("input", () => {
 });
 //*CAROUSEL VAULT
 //RECENTLY PLAYED
+// const recentCarousel = new Carousel ()
 //NOT PLAYED IN A WHILE
 //NEVER PLAYED

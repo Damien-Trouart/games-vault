@@ -1,0 +1,22 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8081:80"
+    volumes:
+      - ../..:/var/www/html
+    container_name: gamesvault-web
+    restart: always
+    depends_on:
+      - bdd
+  bdd:
+    image: mariadb
+    ports:
+      - "3309:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: gamesvault
+      MARIADB_USER: gamesuser
+      MARIADB_PASSWORD: gamespass
+    container_name: gamesvault-db
+    restart: always

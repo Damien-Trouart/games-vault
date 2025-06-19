@@ -48,6 +48,7 @@ import { Game, CompletionTime } from "./interface.js";
 
 //*CAROUSEL VAULT
     //RECENTLY PLAYED
-        
+    const recentCarouselHTML = document.querySelector('recentlyPlayed__carousel') 
+        const recentCarousel = new Carousel (recentCarouselHTML,)
     //NOT PLAYED IN A WHILE
     //NEVER PLAYED

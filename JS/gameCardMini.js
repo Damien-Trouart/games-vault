@@ -34,6 +34,7 @@ export default class GameCard {
                 cover.src = gameData.img;
                 checkbox.checked = gameData.inVault;
                 this.gcContainer?.appendChild(clone);
+                //ajout de classname selon le type de gc souhaité, proposition ou minigc
                 if (mode === "card") {
                     this.gcContainer.classList.add("gameCardContainer");
                 }

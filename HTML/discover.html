@@ -55,35 +55,119 @@
     <main class="discoverMain">
         <section class="searchContainer">
             <aside class="filters">
-                <fieldset class="hardware">
-                    <legend>Plateforme</legend>
-                    <ul>
-                        <li>
+                <form id="filtersForm">
+                    <fieldset class="filtersForm__block">
+                        <legend> Plateform </legend>
+                        <ul>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="platform" value="pc">
+                                    PC
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="platform" value="ps5">
+                                    PlayStation 5
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="platform" value="switch2">
+                                    Nintendo Switch
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="platform" value="xbox">
+                                    Xbox serie X/S
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+                    <fieldset class="filtersForm__block">
+                        <legend> Type </legend>
+                        <ul>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="type" value="game">
+                                    Jeu
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="type" value="dlc">
+                                    DLC
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="type" value="demo">
+                                    Démo
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="type" value="beta">
+                                    Bêta
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+                    <fieldset class="filter-group">
+                        <legend> Realese Date </legend>
+                        <div class="year-range">
                             <label>
-                                <input type="checkbox" name="platform" value="pc">
-                                PC
+                                De
+                                <input type="number" name="year-min" min="1980" max="2100" placeholder="2000">
                             </label>
-                        </li>
-                        <li>
                             <label>
-                                <input type="checkbox" name="platform" value="ps5">
-                                PlayStation 5
+                                à
+                                <input type="number" name="year-max" min="1980" max="2100" placeholder="2025">
                             </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="platform" value="switch">
-                                Nintendo Switch
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="platform" value="xbox">
-                                Xbox serie X/S
-                            </label>
-                        </li>
-                    </ul>
-                </fieldset>
+                        </div>
+                    </fieldset>
+                    <fieldset class="filter-group">
+                        <legend>Specify with tags</legend>
+                        <ul class="tagList">
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="tag" value="solo">
+                                    Solo <span class="tagCount"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="tag" value="action">
+                                    Action <span class="tagCount"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="tag" value="aventure">
+                                    Aventure <span class="tagCount"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="tag" value="independant">
+                                    Indépendant <span class="tagCount"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="tag" value="simulation">
+                                    Simulation <span class="tagCount"></span>
+                                </label>
+                            </li>
+                        </ul>
+                        <input type="search" class="tagSearch-input" placeholder="Search other tags" autocomplete="off"
+                            aria-label="Search other tags">
+                    </fieldset>
+
+                </form>
+
+
             </aside>
             <div class="searchResults">
                 <h2>Search Results</h2>

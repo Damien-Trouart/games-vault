@@ -2,31 +2,66 @@
     {
         "name": "The Witcher 3: Wild Hunt",
         "img": "../assets/witcher3.jpg",
-        "inVault": true
+        "inVault": true,
+        "tags": [
+            "RPG",
+            "Adventure",
+            "Open World",
+            "Fantasy"
+        ]
     },
     {
         "name": "Outer Wilds",
         "img": "../assets/outerWilds.jpg",
-        "inVault": false
+        "inVault": false,
+        "tags": [
+            "Adventure",
+            "Exploration",
+            "Puzzle",
+            "Independent"
+        ]
     },
     {
         "name": "Clair-Obscur Expedition 33",
         "img": "../assets/clairObscur.jpeg",
-        "inVault": true
+        "inVault": true,
+        "tags": [
+            "Adventure",
+            "Exploration",
+            "Turned-based"
+        ]
     },
     {
         "name": "Cyberpunk 2077",
         "img": "../assets/cyberpunk.jpg",
-        "inVault": true
+        "inVault": true,
+        "tags": [
+            "RPG",
+            "Action",
+            "Open World"
+        ]
     },
     {
         "name": "Baldur's Gate 3",
         "img": "../assets/bg3.jpeg",
-        "inVault": true
+        "inVault": true,
+        "tags": [
+            "cRPG",
+            "Turned-based",
+            "Fantasy",
+            "Adventure"
+        ]
     },
     {
         "name": "helldivers 2",
         "img": "../assets/helldivers2.jpg",
-        "inVault": false
+        "inVault": false,
+        "tags": [
+            "Multiplayer",
+            "Co-op",
+            "Shooter",
+            "PvE",
+            "Action"
+        ]
     }
 ]

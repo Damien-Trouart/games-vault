@@ -21,10 +21,11 @@
             <img src="../assets/GamesVaultLogoSmall.png" alt="GamesVault Logo">
         </div>
         <form action="" method="get" class="headerSearch">
-            <input class="headerSearch__input" type="search" autocomplete="off"
-                placeholder="Search your favorite games...">
-            <button type="submit" class="headerSearch__button" value="Search"><img src="../assets/magnifier.svg"
-                    alt="magnifier logo"></button>
+            <div class="searchBarGroup">
+                <input class="searchBarGroup__input" type="search" autocomplete="off"
+                    placeholder="Search your favorite games...">
+                <button type="submit" class="searchBarGroup__button" value="Search"><img src="../assets/magnifier.svg" alt="magnifier logo"></button>
+            </div>
         </form>
         <nav class="headerNav">
             <ul>
@@ -114,7 +115,7 @@
                             </li>
                         </ul>
                     </fieldset>
-                    <fieldset class="filter-group">
+                    <fieldset class="filtersForm__block">
                         <legend> Realese Date </legend>
                         <div class="year-range">
                             <label>
@@ -127,36 +128,36 @@
                             </label>
                         </div>
                     </fieldset>
-                    <fieldset class="filter-group">
+                    <fieldset class="filtersForm__block">
                         <legend>Specify with tags</legend>
                         <ul class="tagList">
                             <li>
                                 <label>
-                                    <input type="checkbox" name="tag" value="solo">
+                                    <input type="checkbox" name="tag" value="solo" class="tag">
                                     Solo <span class="tagCount"></span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="tag" value="action">
+                                    <input type="checkbox" name="tag" value="action" class="tag">
                                     Action <span class="tagCount"></span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="tag" value="aventure">
-                                    Aventure <span class="tagCount"></span>
+                                    <input type="checkbox" name="tag" value="adventure" class="tag">
+                                    Adventure <span class="tagCount"></span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="tag" value="independant">
-                                    Indépendant <span class="tagCount"></span>
+                                    <input type="checkbox" name="tag" value="independant" class="tag">
+                                    Independant <span class="tagCount"></span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="tag" value="simulation">
+                                    <input type="checkbox" name="tag" value="simulation" class="tag">
                                     Simulation <span class="tagCount"></span>
                                 </label>
                             </li>

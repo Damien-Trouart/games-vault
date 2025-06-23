@@ -113,5 +113,8 @@
   "files":[
         "./main.ts",
         "gameCardMini.ts",
+        "carousel.ts",
+        "interface.ts",
+        "test.ts",
     ]
 }

@@ -1,3 +1,5 @@
+const APIkey = "10157fe8e09247149b210eb9c8e9ae62";
+const urlAPI = `https://api.rawg.io/api/games?key=${APIkey}`;
 export default class GameCard {
     gcTemplate; // Small Game Card Template
     title; // Game title

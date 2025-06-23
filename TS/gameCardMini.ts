@@ -1,4 +1,10 @@
 import { Game, CompletionTime } from "./interface.js";
+const APIkey = "10157fe8e09247149b210eb9c8e9ae62"
+const urlAPI = `https://api.rawg.io/api/games?key=${APIkey}`
+
+
+
+
 export default class GameCard {
     private gcTemplate: HTMLTemplateElement | null; // Small Game Card Template
     private title: HTMLHeadingElement | null; // Game title

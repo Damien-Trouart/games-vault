@@ -1,47 +1,46 @@
-import GameCard from "./gameCardMini.js"
+import GameCards from "./gameCardMini.js"
 import Carousel from "./carousel.js"
 import { Game, CompletionTime } from "./interface.js";
-
 
 
 
 //!DISCOVER SEARCH BAR RESULTS
 const headerSearchForm: HTMLFormElement | null = document.querySelector(".headerSearch");
 const headerSearchInput: HTMLInputElement | null = document.querySelector(".searchBarGroup__input");
-const headerSearchResultsContainer: HTMLDivElement | null = document.querySelector('.gameCardContainer');
-const headerSearchPropositionsContainer: HTMLDivElement | null = document.querySelector('.propositionsContainer');
+const searchResultsContainer: HTMLDivElement | null = document.querySelector('.gameCardContainer');
+const searchPropositionsContainer: HTMLDivElement | null = document.querySelector('.propositionsContainer');
 
 //*Search Results
-const searchMatch = new GameCard(headerSearchResultsContainer);
+const searchResults = new GameCards(searchResultsContainer);
 headerSearchForm?.addEventListener("submit", (e: Event) => {
     e.preventDefault(); // Prevent the form from submitting and refreshing the page
     const searchValue: string = headerSearchInput!.value.trim().toLowerCase();
     // Clean the containers before adding new results
-    headerSearchResultsContainer!.innerHTML = "";
-    headerSearchPropositionsContainer!.innerHTML = "";
+    searchResultsContainer!.innerHTML = "";
+    searchPropositionsContainer!.innerHTML = "";
 
     if (searchValue.length <= 1) {
         return;
     }// If the search input is empty or too short, do not fetch any games
     else {
-        searchMatch.getGameCard((game) => game.name.toLowerCase().trim().includes(searchValue), "card");
+        searchResults.getGameCards((game) => game.name.toLowerCase().trim().includes(searchValue), "card");
     }
 });
 
 
 //*Search Propositions
-const searchPropositions = new GameCard(headerSearchPropositionsContainer);
+const searchPropositions = new GameCards(searchPropositionsContainer);
 headerSearchInput?.addEventListener("input", () => {
     const searchValue: string = headerSearchInput!.value.trim().toLowerCase();
     // Clean the containers before adding new results
-    headerSearchResultsContainer!.innerHTML = "";
-    headerSearchPropositionsContainer!.innerHTML = "";
+    searchResultsContainer!.innerHTML = "";
+    searchPropositionsContainer!.innerHTML = "";
 
     if (searchValue.length <= 1) {
         return;
     }// If the search input is empty or too short, do not fetch any games
     else {
-        searchPropositions.getGameCard((game) => game.name.toLowerCase().trim().includes(searchValue), "proposition");
+        searchPropositions.getGameCards((game) => game.name.toLowerCase().trim().includes(searchValue), "proposition");
     }
 });
 
@@ -56,10 +55,10 @@ const recentCarouselHTML = document.querySelector('recentlyPlayed__carousel')
 
 
 
-
-//*TAGS COUNT
+//!TAGS
+//*TAGS COUNT & DISPLAY
 /**
- * Fetches the games from the JSON file, counts occurrences of each tag.
+ * Fetches the games from the JSON file, counts occurrences of each tag and displays the top 5 tags with their counts.
  */
 async function updateTagCounts() {
     const response = await fetch("./../games.json");
@@ -67,29 +66,56 @@ async function updateTagCounts() {
         const games = await response.json() as Game[];
         //Create an object, tagCounts, to store the count of each tag.
         const tagsCount: { [key: string]: number } = {};
+
         games.forEach(game => {
             //For each game, we navigate through its tags
             game.tags.forEach((tag: string) => {
                 //for each tag of each game, we add its count to the tagsCount object already created or we initialize it to 1 if it doesn't exist yet (it would be "undefined" otherwise)
                 tagsCount[tag] = (tagsCount[tag] || 0) + 1;
             });
+        })
+
+
+        //Now that we have the count of each tag in the tagsCount object, we can sort it to get the top 5 most used tags.
+        const tagsCountEntries = Object.entries(tagsCount).sort((a, b) => {
+            return b[1] - a[1];
+        });
+        const topTags = tagsCountEntries.slice(0, 5)
+        const topTagsName = topTags.map(([tag]) => {
+            return tag
+        })
+
+        const tagList: HTMLUListElement | null = document.querySelector('.tagList');
+        /**
+         * Creates a list of tags to be displayed in the tag list.
+         * @param tagsInDisplay An array of tag names to be displayed in the tag list.
+         */
+        function createTagList(tagsInDisplay: string[]) {
+            tagList!.innerHTML = ""; // Clear the existing options
+            tagsInDisplay.forEach((tag) => {
+                tagList!.innerHTML += `
+                    <li>
+                        <label>
+                            <input type="checkbox" name="tag" class="tag" value="${tag}" />
+                            ${tag} <span class="tagCount">(${tagsCount[tag] || 0})</span>
+                        </label>
+                    </li>
+                `
+            });
+        }
+        createTagList(topTagsName);
+
+        const tagSearchInput = document.querySelector('.tagSearch-input') as HTMLInputElement;
+        tagSearchInput.addEventListener('input', () => {
+            const searchCleaned = tagSearchInput.value.trim().toLowerCase();
+            if (searchCleaned.length === 0) {
+                createTagList(topTagsName);
+            } else {
+                const filtered = Object.keys(tagsCount).filter(tag => tag.toLowerCase().includes(searchCleaned));
+                createTagList(filtered);
+            }
         });
 
-//         //Now we have the count of each tag with the tagsCount object
-//         //We select all the differents tag options
-//         document.querySelectorAll('.tag').forEach((input) => {
-//             //For each tag selected, we get its value (the tag name) 
-//             const tag = input.getAttribute('value');
-//             //and the span that will display the count 
-//             const countSpan = input.parentElement?.querySelector('.tagCount');
-//             //if both exist,
-//             if (tag && countSpan) {
-//                 //we change the value of the span displaying the count of the tag to the value corresponding in the tagsCount object if this tag exists, or to 0 if it doesn't
-//                 const count = tagsCount[tag];
-//                 countSpan.textContent = count ? `(${count.toString()})` : "0";
-//             }
-//         })
     }
 }
-
 updateTagCounts();

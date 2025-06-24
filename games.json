@@ -7,7 +7,8 @@
             "RPG",
             "Adventure",
             "Open World",
-            "Fantasy"
+            "Fantasy",
+            "Story-rich"
         ]
     },
     {
@@ -18,7 +19,8 @@
             "Adventure",
             "Exploration",
             "Puzzle",
-            "Independent"
+            "Indie"
+            
         ]
     },
     {
@@ -28,7 +30,8 @@
         "tags": [
             "Adventure",
             "Exploration",
-            "Turned-based"
+            "Turned-based",
+            "Story-rich"
         ]
     },
     {
@@ -38,7 +41,9 @@
         "tags": [
             "RPG",
             "Action",
-            "Open World"
+            "Open World",
+            "Story-rich"
+
         ]
     },
     {
@@ -49,7 +54,8 @@
             "cRPG",
             "Turned-based",
             "Fantasy",
-            "Adventure"
+            "Adventure",
+            "Story-rich"
         ]
     },
     {
@@ -62,6 +68,28 @@
             "Shooter",
             "PvE",
             "Action"
+        ]
+    },
+    {
+        "name": "Hades",
+        "img": "../assets/hades.jpg",
+        "inVault": false,
+        "tags": [
+            "Rogue-like",
+            "Action",
+            "Indie",
+            "Dungeon Crawler"
+        ]
+    },
+    {
+        "name": "Stardew Valley",
+        "img": "../assets/stardewvalley.jpg",
+        "inVault": true,
+        "tags": [
+            "Simulation",
+            "Farming",
+            "Indie",
+            "Relaxing"
         ]
     }
 ]

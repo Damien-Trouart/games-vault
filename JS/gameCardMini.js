@@ -1,6 +1,6 @@
-const APIkey = "10157fe8e09247149b210eb9c8e9ae62";
-const urlAPI = `https://api.rawg.io/api/games?key=${APIkey}`;
-export default class GameCard {
+// const APIkey = "10157fe8e09247149b210eb9c8e9ae62"
+// const urlAPI = `https://api.rawg.io/api/games?key=${APIkey}`
+export default class GameCards {
     gcTemplate; // Small Game Card Template
     title; // Game title
     cover; // Game cover
@@ -16,9 +16,9 @@ export default class GameCard {
     /**
      * Fetch game data and fills the game card with the information.
      * @param filter Optional filter function to apply on the games data.
-     *
+     * @param mode allow to add a class "card" or "proposition" depending what we want our card to look like.
      */
-    async getGameCard(filter, mode = "card") {
+    async getGameCards(filter, mode = "card") {
         const response = await fetch("./../games.json");
         if (response.ok) {
             let gamesData = await response.json();
@@ -35,6 +35,7 @@ export default class GameCard {
                 title.textContent = gameData.name;
                 cover.src = gameData.img;
                 checkbox.checked = gameData.inVault;
+                console.log(title, cover, checkbox);
                 this.gcContainer?.appendChild(clone);
                 //ajout de classname selon le type de gc souhaité, proposition ou minigc
                 if (mode === "card") {

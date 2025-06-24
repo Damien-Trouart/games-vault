@@ -7,7 +7,7 @@ export default class Carousel {
     constructor(carousel, games) {
         this.gcCarousel = carousel;
         this.gcwrapper = new GameCard(this.gcCarousel);
-        this.gcwrapper.getGameCard((game) => true);
+        this.gcwrapper.getGameCards((game) => true);
         this.games = games;
         this.currentIndex = 0;
         this.gcCarousel = document.createElement('div');

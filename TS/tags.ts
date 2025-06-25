@@ -1,5 +1,14 @@
 import { Game } from "./interface.js";
 
+
+
+//Création d'un set stockant les tags séléctionnés pour éviter d'afficher des doublons contrairement à un tableau
+    const selectedTags: Set<string> = new Set()
+
+//On va avoir besoin de ces infos en dehors de la fonction updateTags() pour d'autres fichiers =>
+export { selectedTags };
+
+
 /**
  * Des datas du fichier games.json, création d'un objet stockant le nombre d'occurence de chaque tag.
  * Création d'une fonction affichant les 5 tags les plus présents dans le json 
@@ -34,8 +43,7 @@ export async function updateTags() {
         //Now the aim is to create a function that displays specific tags, these tags being attribute of the function
         //(that's why we created topTagsName, let's have it as attribute of the function to display the top 5 tags)
         const tagList: HTMLUListElement | null = document.querySelector('.tagList');
-        //Création d'un set stockant les tags séléctionnés pour éviter d'afficher des doublons.
-        const selectedTags: Set<string> = new Set()
+        
 
         /**
          * Permet de créer une liste de tag à afficher dans l'<ul>
@@ -72,6 +80,9 @@ export async function updateTags() {
                         //sinon, on le retire d e ce set.
                         selectedTags.delete(generatedTag.value);
                     }
+                    //Je créé un custom event ici pour notifier tous les autres fichiers le moindre changement dans le sset regroupant les tags séléectionnés
+                    //Cela permet d'éviter de devoir faire des event listeners 'change' sur chaque checkbox dans chaque fichier
+                    document.dispatchEvent(new CustomEvent('SelectedTagsChanged'))
                     //on met à jour la liste des tags affichés
                     TagSearchResult();
                 })

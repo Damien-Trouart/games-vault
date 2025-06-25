@@ -116,5 +116,6 @@
         "carousel.ts",
         "interface.ts",
         "test.ts",
+        "tags.ts"
     ]
 }

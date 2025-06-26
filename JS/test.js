@@ -1,12 +1,12 @@
 const APIkey = "10157fe8e09247149b210eb9c8e9ae62";
-const urlAPI = `https://api.rawg.io/api/games?key=${APIkey}&page=10&page_size=10`;
-function mapAPIToGame(APIgame) {
+const urlAPI = `https://api.rawg.io/api/games?key=${APIkey}&tags=action&ordering=-rating&page_size=20`;
+function mapAPItoGame(APIgame) {
     return {
         id: APIgame.id,
         name: APIgame.name,
-        img: APIgame.background_image || "", // RAWG: background_image
+        img: APIgame.background_image || "",
         description: APIgame.description_raw || APIgame.description || "",
-        inVault: false, // valeur par défaut, à adapter selon ta logique
+        inVault: false,
         metascore: APIgame.metacritic || 0,
         platforms: APIgame.platforms ? APIgame.platforms.map((p) => p.platform.name) : [],
         releaseDate: APIgame.released || "",
@@ -18,19 +18,20 @@ function mapAPIToGame(APIgame) {
             mainExtra: 0,
             completionist: 0,
             average: 0
-        }, // RAWG ne fournit pas ces infos, tu peux les compléter plus tard
+        },
         datesPlayed: [],
         dateAdded: "",
-        type: "game" // ou adapte selon le champ RAWG si besoin
+        type: "game"
     };
 }
-async function getGamesData() {
+export async function getGamesData() {
     const testResponse = await fetch(urlAPI);
     if (testResponse.ok) {
         const testData = await testResponse.json();
         console.log(testData.results);
-        return testData.results.map((APIgame) => mapAPIToGame(APIgame));
+        return testData.results.map((APIgame) => mapAPItoGame(APIgame));
     }
 }
-getGamesData();
-export {};
+// getGamesData().then((games: Game[]) => {
+//     console.log(games);
+// });

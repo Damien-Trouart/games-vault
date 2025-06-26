@@ -1,8 +1,9 @@
 import { Game, CompletionTime } from "./interface.js";
-// const APIkey = "10157fe8e09247149b210eb9c8e9ae62"
-// const urlAPI = `https://api.rawg.io/api/games?key=${APIkey}`
+import { getGamesData } from "./test.js";
 
 
+const resultsContainer: HTMLDivElement | null = document.querySelector('.gameCardContainer');
+const searchPropositionsContainer: HTMLDivElement | null = document.querySelector('.propositionsContainer');
 
 
 export default class GameCards {
@@ -32,10 +33,13 @@ export default class GameCards {
         if (response.ok) {
             let gamesData: Game[] = await response.json();
 
-            if (filter) {
-                gamesData = gamesData.filter(filter);
-            }
-
+    
+        // let gamesData: Game[] = await getGamesData();
+        resultsContainer!.innerHTML = "";
+        searchPropositionsContainer!.innerHTML = "";
+        if (filter) {
+            gamesData = gamesData.filter(filter);
+        }
             gamesData.forEach((gameData) => {
                 const clone = this.gcTemplate!.content.cloneNode(true) as HTMLElement;
 

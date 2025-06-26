@@ -1,5 +1,5 @@
-// const APIkey = "10157fe8e09247149b210eb9c8e9ae62"
-// const urlAPI = `https://api.rawg.io/api/games?key=${APIkey}`
+const resultsContainer = document.querySelector('.gameCardContainer');
+const searchPropositionsContainer = document.querySelector('.propositionsContainer');
 export default class GameCards {
     gcTemplate; // Small Game Card Template
     title; // Game title
@@ -22,6 +22,9 @@ export default class GameCards {
         const response = await fetch("./../games.json");
         if (response.ok) {
             let gamesData = await response.json();
+            // let gamesData: Game[] = await getGamesData();
+            resultsContainer.innerHTML = "";
+            searchPropositionsContainer.innerHTML = "";
             if (filter) {
                 gamesData = gamesData.filter(filter);
             }

@@ -1,6 +1,7 @@
 .gameCardContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    display: flex;
+    flex-flow: row wrap;
+    // grid-template-columns: repeat(auto-fill, 150px);
     gap: 1rem;
     padding: 1rem;
     .game-card {

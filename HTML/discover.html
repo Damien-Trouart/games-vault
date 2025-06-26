@@ -59,6 +59,13 @@
             <aside class="filters">
                 <form id="filtersForm">
                     <fieldset class="filtersForm__block">
+                        <legend>Specify with tags</legend>
+                        <ul class="tagList"></ul>
+                        <input type="search" class="tagSearch-input" placeholder="Search other tags" autocomplete="off"
+                            aria-label="Search other tags">
+                        <button type="button" class="tagSearch-btn">Clear</button>
+                    </fieldset>
+                    <fieldset class="filtersForm__block">
                         <legend> Plateform </legend>
                         <ul>
                             <li>
@@ -129,13 +136,7 @@
                             </label>
                         </div>
                     </fieldset>
-                    <fieldset class="filtersForm__block">
-                        <legend>Specify with tags</legend>
-                        <ul class="tagList"></ul>
-                        <input type="search" class="tagSearch-input" placeholder="Search other tags" autocomplete="off"
-                            aria-label="Search other tags">
-                        <button type="button" class="tagSearch-btn">Clear</button>
-                    </fieldset>
+                    
                 </form>
             </aside>
             <div class="searchResults">

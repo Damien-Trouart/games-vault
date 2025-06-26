@@ -10,8 +10,8 @@ headerSearchForm?.addEventListener("submit", (e) => {
     e.preventDefault(); // Prevent the form from submitting and refreshing the page
     const searchValue = headerSearchInput.value.trim().toLowerCase();
     // Clean the containers before adding new results
-    resultsContainer.innerHTML = "";
-    searchPropositionsContainer.innerHTML = "";
+    // resultsContainer!.innerHTML = "";
+    // searchPropositionsContainer!.innerHTML = "";
     if (searchValue.length <= 1) {
         return;
     } // If the search input is empty or too short, do not fetch any games
@@ -42,10 +42,13 @@ const recentCarouselHTML = document.querySelector('recentlyPlayed__carousel');
 //!TAGS
 import { updateTags, selectedTags } from "./tags.js";
 updateTags();
+// Je met un eventlistener sur le document pour détecter tout changement du set selectedTags et donc tout cochage ou decochage de tag.
 document.addEventListener('SelectedTagsChanged', () => {
-    //TODO filtrer les gc par rapport aux tags sélectionnés
+    // je transforme mon set en tableau pour travailler dessus maintnentant que je suis assuré qu'il n'ait pas de doublon
     const selectedTagsArray = Array.from(selectedTags);
+    //reset du container des résultats de recherche
     resultsContainer.innerHTML = "";
+    // je fais apparaitre les games card des jeux ayant des tags identiques à ceux cochés.
     if (selectedTagsArray.length > 0) {
         searchResults.getGameCards((game) => {
             return selectedTagsArray.every((tag) => {

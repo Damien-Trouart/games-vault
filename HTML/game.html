@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Damien Trouart">
+    <meta name="description"
+        content="Backlog of your current, past and futur video games, a place to remember every game you have played or want to">
+    <meta name="og:site_name" content="GamesVault">
+    <title>GamesVault - Game</title>
+    <link rel="stylesheet" href="../sass/main.css">
+    <script type="module" src="./../JS/main.js"></script>
+</head>
+<body>
+    <header>
+        <div class="headerLogo">
+            <img src="../assets/GamesVaultLogoSmall.png" alt="GamesVault Logo">
+        </div>
+        <form action="" method="get" class="headerSearch">
+            <div class="searchBarGroup">
+                <input class="searchBarGroup__input" type="search" autocomplete="off"
+                    placeholder="Search your favorite games...">
+                <button type="submit" class="searchBarGroup__button" value="Search"><img src="../assets/magnifier.svg" alt="magnifier logo"></button>
+            </div>
+            <div class="propositionsContainer"></div>
+        </form>
+        <nav class="headerNav">
+            <ul>
+                <li><a href="../HTML/index.html">Vault</a></li>
+                <li><a href="../HTML/discover.html">Discover</a></li>
+                <li><a href="../HTML/profile.html">Profile</a></li>
+            </ul>
+        </nav>
+        <div class="headerLogin">
+            <a href="">
+                <img src="./../assets/login.svg" alt="Login Logo">
+                <span>Login</span>
+            </a>
+        </div>
+    </header>
+    <main>
+        <div class="gameBanner"></div>
+        <section class="mainInfo">
+            <div class="mainInfo__gameCover">
+                <img src="../assets/gameCover.png" alt="Game Cover">
+                <label for="favoriteLabel" class="favorite"></label>
+                <input type="checkbox" class="favoriteInput" id="favorite"></input>
+            </div>
+            <div class="mainInfo__details">
+                <h1 class="title">Game Title</h1>
+                <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae accusamus voluptate, iste tempore porro cupiditate rem minima illo earum? Obcaecati hic asperiores nobis porro reiciendis fugit tempore odio reprehenderit corrupti.</p>
+                <p class="metacritic">Metacritic Score: 85</p>
+            </div>
+        </section>
+        <div class="gameCarousel"></div>
+        <section class="otherInfo">
+            <div ></div>
+            <div class="reviews"></div>
+            <div class="systemRequirements"></div>
+            <div class="about"></div>
+        </section>
+    </main>
+</body>
+</html>
